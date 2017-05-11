@@ -1,11 +1,11 @@
 # MultithreadedWS
 A simple multi-threaded web server in C++ with support for thread pooling. Currently supports GET requests.
 
-### [1] Overview -
+### Overview -
 
 A mutli-threaded web server solves the scalability issues that plague single-threaded web server. Since thread-creation and deletion is expensive in terms of computational resources that are used, maximum performance can be obtained if we use a thread-pooled approach. In this, a main thread creates a fixed number of "worker" threads. The main thread continuously listens and accepts incoming connections. Whilst doing so, it creates request objects and places them into a data structure. The worker thread then pulls requests from the buffer according to the scheduling policy and produces the necessary response. Thus, the main thread can accept connections as long as memory is available, while a fixed number of threads churn away at maximum efficiency.
 
-### [2] Features
+### Features
 
 At the moment this web server can accomplish the following things:
 
@@ -18,7 +18,7 @@ At the moment this web server can accomplish the following things:
 	4) Only GET requests are supported currently. Any other request will be responded with a 405 - Method Not Allowed response.
 	
 
-### [3] Usage
+### Usage
 
 Compile the program in C++ as "g++ server.cpp -pthread -o server".
 
@@ -31,10 +31,10 @@ Once it is succesfully compiled you can run it - "./server [−h] [−p portnumb
 
 The server can respond to the GET requests via a web browser or telnet. 
 
-### [4] Compatibility.
+### Compatibility.
 I have tested this on OS X 10.12 (Sierra). However it may react strangely on a Windows machine. For example _stat function which I've used is not native to Windows, and may cause unspecified behavior.
 
-### [5]: Implementation:
+### Implementation:
 
 Scheduling Policy: There are many policies that can be used such as First Come First Served, Shortest Job First, etc. Each scheduling policy has their own pros and cons. Shortest Job First, for instance, tries to approximate a particular job might require, and then execute the process. However, there is a possibility of "starvation" in which some jobs may never get the chance to execute. 
 
