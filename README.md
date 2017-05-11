@@ -1,6 +1,5 @@
 # MultithreadedWS
-A simple multi-threaded web server in C++ with support for thread pooling. Currently supports GET requests
-Multi-Threaded Server in C++
+A simple multi-threaded web server in C++ with support for thread pooling. Currently supports GET requests.
 
 ### [1] Overview -
 
