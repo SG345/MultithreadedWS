@@ -52,7 +52,7 @@ Also made use of std::set<>, which is a container in C++ STL implemented interna
 
 I've used an image from University of Nortre Dame's webpage (1) which serves as the basic working architecture for the project, the image is included in this folder and link to that specific tutorial is listed below in the references section.
 
-I've attempted to modularize the code as much as possible. In hindsight an OOP paradigm might suit this project better if we were to extend it with more functionalities. I'd be glad to re-work on this aspect if required.
+I've attempted to modularize the code as much as possible. In hindsight an OOP paradigm might suit this project better if we were to extend it with more functionalities. I have intentions to work on this aspect during the next iteration of development.
 
 
 ### Mutex and Condition variables:
