@@ -2,11 +2,11 @@
 A simple multi-threaded web server in C++ with support for thread pooling. Currently supports GET requests
 Multi-Threaded Server in C++
 
-[1] Overview -
+### [1] Overview -
 
 A mutli-threaded web server solves the scalability issues that plague single-threaded web server. Since thread-creation and deletion is expensive in terms of computational resources that are used, maximum performance can be obtained if we use a thread-pooled approach. In this, a main thread creates a fixed number of "worker" threads. The main thread continuously listens and accepts incoming connections. Whilst doing so, it creates request objects and places them into a data structure. The worker thread then pulls requests from the buffer according to the scheduling policy and produces the necessary response. Thus, the main thread can accept connections as long as memory is available, while a fixed number of threads churn away at maximum efficiency.
 
-[2] Features
+### [2] Features
 
 At the moment this web server can accomplish the following things:
 	1) If the user knows the path to a particular file from the configured root_directory, the server can serve the requisite file once it receives a GET "filepath" request.
@@ -15,7 +15,7 @@ At the moment this web server can accomplish the following things:
 	4) Only GET requests are supported currently. Any other request will be responded with a 405 - Method Not Allowed response.
 Screenshots have been included which highlight all the features implemented.
 
-[3] Usage
+### [3] Usage
 
 Compile the program in C++ as "g++ adobeserver.cpp -pthread -o adobeserver".
 
@@ -28,9 +28,10 @@ Once it is succesfully compiled you can run it - "./adobeserver [−h] [−p por
 
 The server can respond to the GET requests via a web browser or telnet. 
 
-[4] Compatibility. I have tested this on OS X 10.12 (Sierra). However it may react strangely on a Windows machine. For example _stat function which I've used is not native to Windows, and may cause unspecified behavior.
+### [4] Compatibility.
+I have tested this on OS X 10.12 (Sierra). However it may react strangely on a Windows machine. For example _stat function which I've used is not native to Windows, and may cause unspecified behavior.
 
-[5]: Implementation:
+### [5]: Implementation:
 
 Scheduling Policy: There are many policies that can be used such as First Come First Served, Shortest Job First, etc. Each scheduling policy has their own pros and cons. Shortest Job First, for instance, tries to approximate a particular job might require, and then execute the process. However, there is a possibility of "starvation" in which some jobs may never get the chance to execute. 
 
@@ -48,12 +49,12 @@ I've used an image from University of Nortre Dame's webpage (1) which serves as 
 I've attempted to modularize the code as much as possible. In hindsight an OOP paradigm might suit this project better if we were to extend it with more functionalities. I'd be glad to re-work on this aspect if required.
 
 
-Mutex and Condition variables:
+### Mutex and Condition variables:
 
 Since multiple threads use the shared memory space, we need to ensure that they do not use each others' memory space. For this, I've implemented mutex locks in various sections of the program. Namely, the ReadyQ function which is responsible for pushing new request structs into the queue, the scheduler function which is responsible for taking elements one by one from the queue and the execR function which is responsible for serving the request to the client. 
 A signal is also sent between scheduler() and execR() function and between readyQ and scheduler function. The purpose of signal (pthread_cond_signal) is to ensure that they wait long enough in absence of any valid requests, and to synchronize and to ensure that updated information is sent to the correct places so that execution is not stalled/program does not end for reasons like lack of elements in the queue.(2)
 
-Utility Functions: 
+### Utility Functions: 
 
 void help_user();
 	This function displays the list of available command line arguments that can be used for running the server
