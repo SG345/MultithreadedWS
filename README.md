@@ -17,13 +17,12 @@ At the moment this web server can accomplish the following things:
 	
 	4) Only GET requests are supported currently. Any other request will be responded with a 405 - Method Not Allowed response.
 	
-Screenshots have been included which highlight all the features implemented.
 
 ### [3] Usage
 
-Compile the program in C++ as "g++ adobeserver.cpp -pthread -o adobeserver".
+Compile the program in C++ as "g++ server.cpp -pthread -o server".
 
-Once it is succesfully compiled you can run it - "./adobeserver [−h] [−p portnumber] [−r path_to_rootdir] [−n number_of_activethreads]"
+Once it is succesfully compiled you can run it - "./server [−h] [−p portnumber] [−r path_to_rootdir] [−n number_of_activethreads]"
 
 			"-h"          : Print help list of available command line arguments.
 	        "−p port      : Change port. Default is 5002.
@@ -112,7 +111,8 @@ void send_405();
 	Sends a 405 - Method Not Allowed message if the client tries to make a PUT/POST or any other request.
 
 
-References:
+### References:
+
 [1] https://www3.nd.edu/~dthain/courses/cse30341/spring2009/project4/project4.html - for overview and general understanding of the architecture of the multi-threaded server.
 
 [2] http://users.cs.cf.ac.uk/Dave.Marshall/C/node31.html#SECTION003100000000000000000 - Tutorial for Mutexs
