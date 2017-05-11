@@ -40,8 +40,11 @@ I have tested this on OS X 10.12 (Sierra). However it may react strangely on a W
 Scheduling Policy: There are many policies that can be used such as First Come First Served, Shortest Job First, etc. Each scheduling policy has their own pros and cons. Shortest Job First, for instance, tries to approximate a particular job might require, and then execute the process. However, there is a possibility of "starvation" in which some jobs may never get the chance to execute. 
 
 For this task, I decided to use FCFS because of three reasons - 
+
 	(1) It is simple to implement
+	
 	(2) Does not cause starvation
+	
 	(3) At the moment since only limited types of requests are supported, FCFS will serve our purpose quite well
 
 Data Structures: I've made use of C++ Standard Template Library. In particular, I've made use of std::<queue> data structure which is basically a container that easily allows us to use it for common queue operations such as pushing an object into back of queue and retrieving the element from the front of the queue.
