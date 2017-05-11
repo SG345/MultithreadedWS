@@ -8,10 +8,15 @@ A mutli-threaded web server solves the scalability issues that plague single-thr
 ### [2] Features
 
 At the moment this web server can accomplish the following things:
+
 	1) If the user knows the path to a particular file from the configured root_directory, the server can serve the requisite file once it receives a GET "filepath" request.
+	
 	2) It can list the contents of a specified directory, sorted by filename lexicographically. 
+	
 	3) If the specified file/dir does not exist, it sends a 404 Not Found message to the client.
+	
 	4) Only GET requests are supported currently. Any other request will be responded with a 405 - Method Not Allowed response.
+	
 Screenshots have been included which highlight all the features implemented.
 
 ### [3] Usage
