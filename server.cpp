@@ -38,8 +38,8 @@
 #define HTTP_NOTALLOWED "HTTP/1.0 405 Method Not Allowed\n"
 #define HTML        "Content-Type:text/html\n"
 
-#define	BUF_LEN	100000
-#define BUFSIZE 100000
+#define	BUF_LEN	1000000
+#define BUFSIZE 1000000
 
 using namespace std;
 
@@ -118,6 +118,7 @@ void show_dir_content (string path, int clientsocket) {
 
 		send(clientsocket, tempbuffer.c_str(), strlen(tempbuffer.c_str()), 0);
 	}
+	dirlist.clear();
 
 }
 
@@ -178,7 +179,6 @@ void sigchld_handler (int s) {
 int createSocket() {
 
 	int sockfd, newsockfd, clilen;
-	char buffer[256];
 	struct sockaddr_in serv_addr, cli_addr;
 	struct sigaction sa;
 	int  n;
@@ -446,6 +446,7 @@ int main(int argc, char *argv[]) {
 	sock = createSocket();
 
 	cout << "\n\nServer is running successfully\n" << "Root Directory: " << rootdir << "\nPort: " << portno << endl;
+	cout << "\n To stop the server at any time - Ctrl + C"<<endl;
 	execT = new pthread_t[NThreads];
 	pthread_create(&queueT, NULL,  queueProcess, (void *) &sock);
 	pthread_create(&schT, NULL, scheduler, NULL);
