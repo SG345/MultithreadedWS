@@ -1,17 +1,17 @@
 #include	  <iostream>
 #include	  <map>
-#include    <set>
-#include    <queue>
-#include    <string>
-#include    <sstream>
-#include    <fstream>
+#include          <set>
+#include          <queue>
+#include          <string>
+#include          <sstream>
+#include          <fstream>
 
 #include	  <pthread.h>
-#include    <stdio.h>
-#include    <stdlib.h>
-#include    <string.h>
-#include    <dirent.h>
-#include    <ctype.h>
+#include          <stdio.h>
+#include          <stdlib.h>
+#include          <string.h>
+#include          <dirent.h>
+#include          <ctype.h>
 #include 	  <syslog.h>
 #include	  <unistd.h>
 #include 	  <termios.h>
@@ -20,15 +20,15 @@
 #include	  <netdb.h>
 #include	  <inttypes.h>
 #include	  <time.h>
-#include    <errno.h>
-#include    <signal.h>
-#include    <dirent.h>
+#include          <errno.h>
+#include          <signal.h>
+#include          <dirent.h>
 #include 	  <arpa/inet.h>
 #include	  <netinet/in.h>
 #include	  <sys/types.h>
 #include	  <sys/socket.h>
 #include 	  <sys/stat.h>
-#include    <sys/wait.h>
+#include          <sys/wait.h>
 
 #define ERR_404     "<html><body><h1><font color=\"FF3333\"> Error 404 Not Found </font><h1><br><h3>The resource you were looking for was not found on this server</h3></body></html>"
 #define ERR_405     "<html><body><h1><font color=\"FF3333\"> Error 405 Request Not Supported </font><h1><br><h3>The request you made is not supported by this server</h3></body></html>"
